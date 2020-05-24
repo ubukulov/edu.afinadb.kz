@@ -1,0 +1,50 @@
+.carousel-item > img {
+  height: auto !important;
+}
+.navbar-nav {
+  width: 100% !important;
+}
+.navbar {
+  background: #131731 !important;
+}
+.navbar {
+  position: relative;
+}
+.navbar-collapse {
+  flex-grow: 0 !important;
+}
+.navbar-expand-lg {
+  justify-content: center !important;
+}
+button {
+  background: #69328e !important;
+  border-color: #69328e !important;
+}
+.my_btn {
+  background: #69328e !important;
+  color: #fff !important;
+  border-color: #69328e !important;
+  padding: 10px 20px !important;
+}
+.last-item {
+  position: relative !important;
+}
+.test-success {
+  border-top: 10px solid #131731 !important;
+  background: #847796 !important;
+}
+.carousel-caption {
+  bottom: 0px !important;
+  top: 40% !important;
+}
+.question-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+.answer {
+  padding-left: 25px;
+}
+.answer .form-check-label {
+  font-size: 16px;
+}
+/*# sourceMappingURL=my.css.map */

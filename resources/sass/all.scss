@@ -1,0 +1,27 @@
+.breadcrumb {
+    padding: 0px !important;
+    background: none !important;
+}
+.clear {
+    clear: both;
+}
+.navbar-nav {
+    width: 1140px;
+    margin: 0 auto;
+    position: relative;
+}
+.nav-item:first-child {
+    a {
+        padding-left: 0px !important;
+    }
+}
+.nav-link {
+    font-size: 18px;
+}
+.last-item {
+    position: absolute;
+    right: 0;
+}
+.prev-last-item {
+    right: 100px !important;
+}
