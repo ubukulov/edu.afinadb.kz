@@ -73,6 +73,10 @@
                     </div>
                     <div class="modal-body">
                         <div class="user-test-info">
+                            <p v-if="test_result.next_lesson == ''">
+                                Поздравляем! <br>
+                                Вы успешно закончили обучение курса.
+                            </p>
                             <p><strong>Имя: </strong>{{ Auth::user()->profile->firstname }}</p>
                             <p><strong>Дата выполнение: </strong>@{{ test_result.date }}</p>
                             <p><strong>Правильных ответов:</strong>&nbsp;@{{ test_result.percent }}% (@{{ test_result.cca }} из @{{ test_result.cq }})</p>
@@ -82,7 +86,7 @@
                     <div class="modal-footer">
                         <a :href="test_result.list_lesson_link" class="btn btn-primary">Перейти к списку уроков</a>
                         <button @click="windowRefresh()" type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                        <a v-if="test_result.percent == 100" :href="test_result.next_lesson" class="btn btn-primary">Перейти к след. уроку</a>
+                        <a v-if="test_result.percent == 100 && test_result.next_lesson != ''" :href="test_result.next_lesson" class="btn btn-primary">Перейти к след. уроку</a>
                     </div>
                 </div>
             </div>
