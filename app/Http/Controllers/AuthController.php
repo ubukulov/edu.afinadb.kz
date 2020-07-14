@@ -53,8 +53,12 @@ class AuthController extends BaseController
     {
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            $previous_url = $request->input('previous_url') || route('home');
-            return redirect()->intended($previous_url);
+            $previous_url = $request->input('previous_url');
+            if ($previous_url == route('login')) {
+                return redirect()->route('home');
+            } else {
+                return redirect()->intended($previous_url);
+            }
         } else {
             return redirect()->back();
         }
