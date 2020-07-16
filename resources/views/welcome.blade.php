@@ -5,7 +5,9 @@
         @foreach($courses as $course)
             <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
-                    <img style="max-width: 100%;" src="https://mamaplus.md/sites/default/files/mplus_migrate/1960/54214e77b7848_54214e77b7882.jpg" class="course_icon">
+                    <div class="card_img">
+                        <img style="max-width: 100%;" src="{{ $course->img }}" class="course_icon">
+                    </div>
                     <div class="card-body">
                         <h2>{{ $course->title }}</h2>
 {{--                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>--}}

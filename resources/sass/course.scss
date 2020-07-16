@@ -29,8 +29,29 @@
         width: 100%;
     }
 }
-.card img {
+.card {
+    height: 450px;
+    max-height: 100%;
     position: relative;
+
+    .d-flex {
+        position: absolute;
+        bottom: 20px;
+        width: 80%;
+        max-width: 100%;
+    }
+    h2 {
+        font-size: 28px;
+        line-height: 28px;
+    }
+    .card_img {
+        max-height: 230px;
+
+        img {
+            position: relative;
+            height: 100%;
+        }
+    }
 }
 .new_item {
     z-index: 10;

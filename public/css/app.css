@@ -10914,8 +10914,31 @@ a.text-dark:focus {
   width: 100%;
 }
 
-.card img {
+.card {
+  height: 450px;
+  max-height: 100%;
   position: relative;
+}
+
+.card .d-flex {
+  position: absolute;
+  bottom: 20px;
+  width: 80%;
+  max-width: 100%;
+}
+
+.card h2 {
+  font-size: 28px;
+  line-height: 28px;
+}
+
+.card .card_img {
+  max-height: 230px;
+}
+
+.card .card_img img {
+  position: relative;
+  height: 100%;
 }
 
 .new_item {
