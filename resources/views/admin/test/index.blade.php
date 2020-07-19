@@ -79,7 +79,7 @@
                         <a class="btn btn-warning btn-sm" href="{{ route('questions.index', ['course_id' => $course_id, 'lesson_id' => $lesson_id,'test' => $test->id]) }}">
                             <i class="fas fa-pencil-alt">
                             </i>
-                            Вопросы
+                            Вопросы ({{ count($test->questions) }})
                         </a>
                         <button onclick="confirm('Вы хотите удалить?') ? window.location = $(this).attr('data-url') : $(this).preventDefault();" data-url="{{ route('test.destroy', ['course_id' => $course_id, 'lesson_id' => $lesson_id, 'test_id' => $test->id]) }}" class="btn btn-danger btn-sm">
                             <i class="fas fa-trash">

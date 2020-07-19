@@ -13,8 +13,12 @@
                     <source src="{{ $lesson->video }}" type="video/mp4">
                 </video>
             </div>
-
             @endif
+
+            <div class="lesson-desc mt-3 mb-3">
+                <h4>Описание урока</h4>
+                {{ $lesson->full_description }}
+            </div>
 
             @include('partials.lesson_tests', ['test' => $test])
         </div>

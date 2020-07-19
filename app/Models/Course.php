@@ -12,6 +12,6 @@ class Course extends Model
 
     public function lessons()
     {
-        return $this->hasMany('App\Models\Lesson', 'course_id');
+        return $this->hasMany('App\Models\Lesson', 'course_id')->orderBy('position');
     }
 }

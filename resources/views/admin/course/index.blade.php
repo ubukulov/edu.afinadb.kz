@@ -35,7 +35,7 @@
                 @foreach($courses as $course)
                 <tr>
                     <td>
-                        #{{ $course->id }}
+                        #{{ $loop->iteration }}
                     </td>
                     <td>
                         <a>

@@ -17,7 +17,7 @@ class LessonController extends Controller
      */
     public function index($course_id)
     {
-        $lessons = Lesson::where(['course_id' => $course_id])->get();
+        $lessons = Lesson::where(['course_id' => $course_id])->orderBy('position')->get();
         $course = Course::findOrFail($course_id);
         return view('admin.lesson.index', compact('lessons', 'course'));
     }

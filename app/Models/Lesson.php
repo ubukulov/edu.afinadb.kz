@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Lesson extends Model
 {
     protected $fillable = [
-        'course_id', 'title', 'full_description', 'created_at', 'updated_at', 'video'
+        'course_id', 'title', 'full_description', 'created_at', 'updated_at', 'video', 'position'
     ];
 
     public function course()
@@ -18,6 +18,12 @@ class Lesson extends Model
     public function tests()
     {
         return $this->hasMany('App\Models\Test', 'lesson_id')->latest();
+    }
+
+    public function count_tests()
+    {
+        $tests = Test::where(['lesson_id' => $this->id])->get();
+        return count($tests);
     }
 
     public static function remove($id)

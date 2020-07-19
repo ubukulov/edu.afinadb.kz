@@ -7,6 +7,8 @@ use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
+use Illuminate\Support\Str;
+use Esputnik;
 
 class AuthController extends BaseController
 {
@@ -68,5 +70,43 @@ class AuthController extends BaseController
     {
         Auth::logout();
         return redirect()->route('home');
+    }
+
+    public function restore_password()
+    {
+        return view('restore_password');
+    }
+
+    public function restore(Request $request)
+    {
+        $email = $request->input('email');
+        $user = User::where(['email' => $email])->first();
+        if ($user) {
+            $password = Str::random(6);
+            $data = [
+                'password' => $password,
+                'name' => $user->profile->firstname,
+                'email' => $email
+            ];
+            Esputnik::createUserInES($user, "Пользователи обучающего портала");
+            Esputnik::sendEmail(2270356, $data, 5);
+
+            $user->password = bcrypt($password);
+            $user->save();
+
+            return redirect()->route('forgot.email.sent');
+        } else {
+            return redirect()->route('forgot.email.wrong');
+        }
+    }
+
+    public function forgot_email_sent()
+    {
+        return view('restore_success');
+    }
+
+    public function forgot_email_wrong()
+    {
+        return view('restore_failed');
     }
 }

@@ -36,7 +36,7 @@
                 @foreach($lessons as $lesson)
                 <tr>
                     <td>
-                        #{{ $lesson->id }}
+                        #{{ $loop->iteration }}
                     </td>
                     <td>
                         <a>
@@ -51,7 +51,7 @@
                         <a class="btn btn-primary btn-sm" href="{{ route('test.index', ['course_id' => $course->id, 'lesson_id' => $lesson->id]) }}">
                             <i class="fas fa-folder">
                             </i>
-                            Тест
+                            Тест ({{ $lesson->count_tests() }})
                         </a>
                         <a class="btn btn-info btn-sm" href="{{ route('lessons.edit', ['course_id' => $course->id, 'lesson_id' => $lesson->id]) }}">
                             <i class="fas fa-pencil-alt">

@@ -19,6 +19,10 @@ Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/register', 'AuthController@registration')->name('registration');
 Route::post('/login', 'AuthController@authenticate')->name('authenticate');
 Route::get('/logout', 'AuthController@logout')->name('logout');
+Route::get('/restore-password', 'AuthController@restore_password')->name('restore.password');
+Route::post('/restore-password', 'AuthController@restore')->name('restore');
+Route::get('/forgot-email-sent', 'AuthController@forgot_email_sent')->name('forgot.email.sent');
+Route::get('/forgot-email-wrong', 'AuthController@forgot_email_wrong')->name('forgot.email.wrong');
 
 # Page of courses
 Route::group(['middleware' => ['auth', 'course']], function(){
