@@ -5,24 +5,21 @@
         <div class="card-body pb-0">
             <div class="row d-flex align-items-stretch">
                 @foreach($users as $user)
-                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                    <div class="col-md-3 d-flex align-items-stretch">
                         <div class="card bg-light">
-                            <div class="card-header text-muted border-bottom-0">
-                                Digital Strategist
-                            </div>
                             <div class="card-body pt-0">
                                 <div class="row">
-                                    <div class="col-7">
+                                    <div class="col-12">
                                         <h2 class="lead"><b>{{ $user->profile->firstname }}</b></h2>
-                                        <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
                                         <ul class="ml-4 mb-0 fa-ul text-muted">
                                             <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope-square"></i></span> Email: {{ $user->email }}</li>
-                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Адрес: {{ $user->profile->address }}</li>
                                             <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Телефон: {{ $user->profile->phone }}</li>
+                                            @if($lesson = $user->current_lesson())
+                                                <li class="small"><strong>Сейчас изучает</strong></li>
+                                                <li class="small">Курс: <i>{{ $lesson->course->title }}</i></li>
+                                                <li class="small">Урок: <i>{{ $lesson->title }}</i></li>
+                                            @endif
                                         </ul>
-                                    </div>
-                                    <div class="col-5 text-center">
-                                        <img src="/admin_lte/dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
                                     </div>
                                 </div>
                             </div>

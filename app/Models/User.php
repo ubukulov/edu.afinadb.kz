@@ -70,4 +70,14 @@ class User extends Authenticatable
     {
         UserRole::create(['user_id' => $this->id, 'role' => $role]);
     }
+
+    public function current_lesson()
+    {
+        $user_test = UserTest::where(['user_id' => $this->id])->orderBy('id', 'DESC')->first();
+        if ($user_test && !empty($user_test)) {
+            $test = Test::findOrFail($user_test->test_id);
+            return $test->lesson;
+        }
+        return false;
+    }
 }

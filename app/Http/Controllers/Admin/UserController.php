@@ -51,7 +51,7 @@ class UserController extends Controller
         try {
             $user = User::create($credentials);
             UserProfile::create([
-                'user_id' => $user->id, 'firstname' => $request->input('firstname')
+                'user_id' => $user->id, 'firstname' => $request->input('firstname'), 'phone' => $request->input('phone')
             ]);
             foreach($request->input('role') as $role_name) {
                 $user->addRole($role_name);

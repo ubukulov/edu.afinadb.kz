@@ -21,6 +21,11 @@
                       </div>
 
                       <div class="form-group">
+                          <label>Телефон</label>
+                          <input type="text" name="phone" class="form-control">
+                      </div>
+
+                      <div class="form-group">
                           <label>Пароль</label>
                           <input type="text" name="password" class="form-control" required>
                       </div>

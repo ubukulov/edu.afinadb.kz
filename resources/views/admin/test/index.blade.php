@@ -1,6 +1,7 @@
 @extends('admin.dashboard')
 @section('content')
     {{ Breadcrumbs::render('admin.test.index', $course_id) }}
+    <p style="font-size: 14px;">Вы тут: {{ $lesson->course->title }} / {{ $lesson->title }}</p>
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Список тестов</h3>

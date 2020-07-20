@@ -1,6 +1,10 @@
 @extends('admin.dashboard')
 @section('content')
     {{ Breadcrumbs::render('admin.question.edit', $course_id, $lesson_id, $test) }}
+    @php
+        $lesson = $test->lesson;
+    @endphp
+    <p style="font-size: 14px;">Вы тут: {{ $lesson->course->title }} / {{ $lesson->title }}</p>
     <input type="hidden" id="test_id" value="{{ $test->id }}">
     <section class="content">
         <div id="question">

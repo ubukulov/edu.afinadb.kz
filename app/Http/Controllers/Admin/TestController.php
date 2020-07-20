@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Test;
 use Illuminate\Http\Request;
@@ -17,7 +18,8 @@ class TestController extends Controller
     public function index($course_id, $lesson_id)
     {
         $tests = Test::where(['lesson_id' => $lesson_id])->get();
-        return view('admin.test.index', compact('tests', 'course_id', 'lesson_id'));
+        $lesson = Lesson::findOrFail($lesson_id);
+        return view('admin.test.index', compact('tests', 'course_id', 'lesson_id', 'lesson'));
     }
 
     /**
