@@ -167,11 +167,8 @@
 
     <!-- Main Footer -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2019 <a href="http://admin_ltelte.io">AdminLTE.io</a>.</strong>
+        <strong>&copy; 2020 <a href="http://astroloved.com">Astroloved</a>.</strong>
         All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.0.4
-        </div>
     </footer>
 </div>
 <!-- ./wrapper -->
