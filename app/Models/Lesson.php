@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Lesson extends Model
 {
@@ -56,5 +57,10 @@ class Lesson extends Model
         }
 
         return false;
+    }
+
+    public function is_viewed()
+    {
+        return LessonViewUser::exists(Auth::user()->id, $this->id);
     }
 }

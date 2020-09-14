@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Answer;
+use App\Models\Course;
 use App\Models\Lesson;
+use App\Models\LessonViewUser;
 use App\Models\Test;
 use App\Models\TestResult;
 use App\Models\UserTest;
@@ -17,6 +19,7 @@ class LessonController extends BaseController
     {
         $lesson = Lesson::findOrFail($lesson_id);
         $test = $lesson->tests->first();
+        LessonViewUser::add(Auth::user()->id, $lesson_id);
         return view('lesson.index', compact('lesson', 'test'));
     }
 
@@ -78,5 +81,20 @@ class LessonController extends BaseController
             DB::rollBack();
             dd("Ошибка: $exception");
         }
+    }
+
+    public function dalee($course_id, $lesson_id)
+    {
+        $course = Course::findOrFail($course_id);
+        $currentIndex = 0;
+        $next_lesson_url = '';
+        foreach($course->lessons as $item) {
+            if ($item->id == $lesson_id) {
+                $next_lesson_url .= $course->lessons[$currentIndex+1]->url();
+                break;
+            }
+            $currentIndex++;
+        }
+        return redirect()->intended($next_lesson_url);
     }
 }

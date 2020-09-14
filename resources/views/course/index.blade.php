@@ -18,6 +18,8 @@
                         @else
                             @if($lesson->is_previous_success($lessons[$loop->index - 1]))
                                 <a href="{{ route('web.lesson.index', ['id' => $course->id, 'l_id' => $lesson->id]) }}">{{ $lesson->title }}</a>
+                            @elseif($lesson->is_viewed())
+                                <a href="{{ route('web.lesson.index', ['id' => $course->id, 'l_id' => $lesson->id]) }}">{{ $lesson->title }}</a>
                             @else
                                 {{ $lesson->title }}
                             @endif

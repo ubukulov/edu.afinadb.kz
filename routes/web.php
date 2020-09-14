@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth', 'course']], function(){
     Route::get('/course/{id}', 'CourseController@index')->name('web.course.index');
     Route::get('/course/{id}/lesson/{l_id}', 'LessonController@index')->name('web.lesson.index');
     Route::post('/course/{id}/lesson/{l_id}/testing', 'LessonController@testing')->name('web.lesson.testing');
+    Route::get('/course/{id}/lesson/{l_id}/dalee', 'LessonController@dalee')->name('dalee');
 });
 
 Route::get('/api/question/{id}/answers', 'ApiController@question_answers');

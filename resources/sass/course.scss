@@ -46,10 +46,10 @@
     }
     .card_img {
         max-height: 230px;
+        overflow: hidden;
 
         img {
             position: relative;
-            height: 100%;
         }
     }
 }

@@ -20,7 +20,11 @@
                 {{ $lesson->full_description }}
             </div>
 
-            @include('partials.lesson_tests', ['test' => $test])
+            @if(count($lesson->tests) > 0)
+                @include('partials.lesson_tests', ['test' => $test])
+            @else
+                <a href="{{ route('dalee', ['id' => $lesson->course->id, 'l_id' => $lesson->id]) }}" class="btn btn-success">Далее</a>
+            @endif
         </div>
     </div>
 @stop

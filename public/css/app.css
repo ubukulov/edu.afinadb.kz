@@ -10934,11 +10934,11 @@ a.text-dark:focus {
 
 .card .card_img {
   max-height: 230px;
+  overflow: hidden;
 }
 
 .card .card_img img {
   position: relative;
-  height: 100%;
 }
 
 .new_item {
